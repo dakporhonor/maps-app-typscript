@@ -1,7 +1,9 @@
 # maps app
 
-## Run npm install
+### Run
 
-## Start Script:
+npm install
+
+### Start Script:
 
 parcel index.html

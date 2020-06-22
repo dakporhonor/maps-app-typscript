@@ -85122,6 +85122,10 @@ function () {
     };
   }
 
+  Company.prototype.mapperContent = function () {
+    return "\n    <div>\n    <h1>Company Name is " + this.companyName + "</h1>\n    <h4>Catch Phrase: " + this.catchPhrase + "</h4>\n    </div>\n    ";
+  };
+
   return Company;
 }();
 
@@ -85154,6 +85158,10 @@ function () {
     };
   }
 
+  User.prototype.mapperContent = function () {
+    return "<h1>User Name is " + this.name + "</h1>";
+  };
+
   return User;
 }();
 
@@ -85172,7 +85180,7 @@ function () {
   function CustomMap(divId) {
     var mapDiv = document.getElementById(divId);
     this.googleMap = new google.maps.Map(mapDiv, {
-      backgroundColor: 'gold',
+      backgroundColor: 'black',
       zoom: 1,
       center: {
         lat: 0,
@@ -85193,7 +85201,7 @@ function () {
     });
     marker.addListener('mouseover', function () {
       var infoWindow = new google.maps.InfoWindow({
-        content: 'Hello World'
+        content: mappable.mapperContent()
       });
       infoWindow.open(_this.googleMap, marker);
     });
@@ -85249,7 +85257,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "38077" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "41505" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

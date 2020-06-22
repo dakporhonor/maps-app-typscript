@@ -1,5 +1,5 @@
 // Instruction to every other class on how they can be an argument to addMarker method
-interface Mappable {
+export interface Mappable {
   location: {
     lat: number;
     lng: number;
@@ -12,7 +12,7 @@ export class CustomMap {
   constructor(divId: string) {
     const mapDiv = document.getElementById(divId);
     this.googleMap = new google.maps.Map(mapDiv, {
-      backgroundColor: 'gold',
+      backgroundColor: 'black',
       zoom: 1,
       center: {
         lat: 0,
@@ -32,7 +32,7 @@ export class CustomMap {
 
     marker.addListener('mouseover', () => {
       const infoWindow = new google.maps.InfoWindow({
-        content: 'Hello World',
+        content: mappable.mapperContent(),
       });
       infoWindow.open(this.googleMap, marker);
     });
